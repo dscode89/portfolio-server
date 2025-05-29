@@ -17,22 +17,26 @@ router.get("/", (ctx) => {
 });
 
 router.post("/api/email-enquiry", async (ctx) => {
-  console.log(process.env.MAIL_TOKEN);
-  var transport = nodemailer.createTransport({
-    host: "live.smtp.mailtrap.io",
+  const requestBody = ctx.request.body as {
+    name: string;
+    email: string;
+    message: string;
+  };
+  const transport = nodemailer.createTransport({
+    host: "sandbox.smtp.mailtrap.io",
     port: 587,
     auth: {
-      user: "api",
-      pass: process.env.MAIL_TOKEN,
+      user: "d5d4abee7dc43d",
+      pass: "80cf882031c0cc",
     },
   });
 
   transport
     .sendMail({
-      from: "info@demomailtrap.co",
+      from: "info@mailtrap.co",
       to: process.env.EMAIL,
-      subject: "You are awesome!",
-      text: "Congrats for sending test email with Mailtrap!",
+      subject: "New website enquiry!",
+      text: `Another test`,
     })
     .then(console.log, console.error);
 });

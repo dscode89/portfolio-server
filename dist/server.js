@@ -26,21 +26,21 @@ router.get("/", (ctx) => {
     ctx.body = { msg: "hey there!" };
 });
 router.post("/api/email-enquiry", (ctx) => __awaiter(void 0, void 0, void 0, function* () {
-    console.log(process.env.MAIL_TOKEN);
-    var transport = nodemailer_1.default.createTransport({
-        host: "live.smtp.mailtrap.io",
+    const requestBody = ctx.request.body;
+    const transport = nodemailer_1.default.createTransport({
+        host: "sandbox.smtp.mailtrap.io",
         port: 587,
         auth: {
-            user: "api",
-            pass: process.env.MAIL_TOKEN,
+            user: "d5d4abee7dc43d",
+            pass: "80cf882031c0cc",
         },
     });
     transport
         .sendMail({
-        from: "info@demomailtrap.co",
+        from: "info@mailtrap.co",
         to: process.env.EMAIL,
-        subject: "You are awesome!",
-        text: "Congrats for sending test email with Mailtrap!",
+        subject: "New website enquiry!",
+        text: `Another test`,
     })
         .then(console.log, console.error);
 }));
