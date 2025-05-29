@@ -1,0 +1,20 @@
+{
+  "name": "portfolio-server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "compile": "npx tsc",
+    "run-server": "npm run compile && node ./dist/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "koa": "^3.0.0"
+  },
+  "devDependencies": {
+    "@types/koa": "^2.15.0",
+    "typescript": "^5.8.3"
+  }
+}
