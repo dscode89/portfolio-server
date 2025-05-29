@@ -40,7 +40,10 @@ router.post("/api/email-enquiry", (ctx) => __awaiter(void 0, void 0, void 0, fun
         from: "info@mailtrap.co",
         to: process.env.EMAIL,
         subject: "New website enquiry!",
-        text: `Another test`,
+        text: "hello",
+        html: `<h2>New Enquiry<h2><br></br><p><strong>Name:</strong>${requestBody.name}</p>
+      <br></br><p><strong>Email:</strong>${requestBody.email}</p><br></br><p><strong>Name:</strong>${requestBody.name}</p>
+      <br></br><p><strong>Message:</strong>${requestBody.message}</p>`,
     })
         .then(console.log, console.error);
 }));
